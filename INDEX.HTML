@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>TRIPPLE FASION — Measurement Prototype</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+    <h1>TRIPPLE FASION — Measurements</h1>
+
+    <div class="controls">
+      <label>Enter your height (cm): <input id="heightInput" type="number" min="100" max="250" value="170"></label>
+      <button id="startBtn">Start Camera</button>
+      <button id="stopBtn" disabled>Stop Camera</button>
+    </div>
+
+    <div class="guide">
+      <ol>
+        <li>Stand straight, feet hip width apart.</li>
+        <li>Arms slightly away from body (not tight).</li>
+        <li>Take the <strong>FRONT</strong> capture first.</li>
+        <li>Rotate 90° (side view), keep same pose, take the <strong>SIDE</strong> capture.</li>
+      </ol>
+    </div>
+
+    <div class="camera-row">
+      <div class="video-wrap">
+        <video id="video" autoplay playsinline></video>
+        <canvas id="overlay"></canvas>
+      </div>
+
+      <div class="buttons">
+        <button id="captureFront" disabled>Capture FRONT</button>
+        <button id="captureSide" disabled>Capture SIDE</button>
+        <button id="calcBtn" disabled>Calculate Measurements</button>
+        <button id="exportBtn" disabled>Export CSV</button>
+      </div>
+    </div>
+
+    <div id="results" class="results">
+      <h2>Results</h2>
+      <div id="measurementsList">No captures yet.</div>
+    </div>
+
+    <footer>
+      <small>Prototype — for testing only. For better accuracy use side/front with consistent distance or LiDAR-enabled devices.</small>
+    </footer>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/@mediapipe/pose@0.5/pose.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@mediapipe/drawing_utils@0.5/drawing_utils.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
